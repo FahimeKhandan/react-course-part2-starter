@@ -15,10 +15,16 @@ const fetchTodos = () =>
     .then((res) => res.data);
 
 const TodoList = () => {
-  const { data: todos, error } = useQuery<Todo[], Error>({
+  const {
+    data: todos,
+    error,
+    isLoading,
+  } = useQuery<Todo[], Error>({
     queryKey: ["todos"],
     queryFn: fetchTodos,
   });
+
+  if (isLoading) return <p>...loading</p>;
 
   if (error) return <p>{error.message}</p>;
 
