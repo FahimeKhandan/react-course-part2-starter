@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import usePosts from "./hooks/usePosts";
 
 const PostList = () => {
   const pageSize = 10;
 
-  const { data, error, isLoading, fetchNextPage, isFetchingNextPage } = usePosts({
-    pageSize,
-  });
+  const { data, error, isLoading, fetchNextPage, isFetchingNextPage } =
+    usePosts({
+      pageSize,
+    });
 
   if (isLoading) return <p>...loading</p>;
 
