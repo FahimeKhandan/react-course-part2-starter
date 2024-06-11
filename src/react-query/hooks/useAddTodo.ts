@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Todo } from "./useTodos";
 import axios from "axios";
+import { CACHE_KEY_TODO } from "../constants";
 
 interface TodoContex {
   prevTodos: Todo[];
@@ -34,7 +35,7 @@ const useAddTodo = (onAdd: () => void) => {
 
       //Approche 2: Updating the data in the cache
 
-      queryClient.setQueryData<Todo[]>(["todos"], (todos) =>
+      queryClient.setQueryData<Todo[]>(CACHE_KEY_TODO, (todos) =>
         todos?.map((todo) => (todo === newTodo ? savedTodo : todo))
       );
 
@@ -44,7 +45,7 @@ const useAddTodo = (onAdd: () => void) => {
     onError: (error, newTodo, contex) => {
       if (!contex) return;
 
-      queryClient.setQueryData<Todo[]>(["todos"], contex.prevTodos);
+      queryClient.setQueryData<Todo[]>(CACHE_KEY_TODO, contex.prevTodos);
     },
   });
 };
