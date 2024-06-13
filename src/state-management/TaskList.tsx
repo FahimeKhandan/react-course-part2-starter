@@ -1,5 +1,5 @@
 import { useReducer, useState } from "react";
-import taskReducer from "./reducers.ts/tasksReducer";
+import taskReducer from "./reducers/tasksReducer";
 
 const TaskList = () => {
   const [tasks, dispatch] = useReducer(taskReducer, []);
@@ -26,7 +26,7 @@ const TaskList = () => {
             <span className="flex-grow-1">{task.title}</span>
             <button
               className="btn btn-outline-danger"
-              onClick={() => dispatch({type:"DELETE", id: task.id})}
+              onClick={() => dispatch({ type: "DELETE", id: task.id })}
             >
               Delete
             </button>
