@@ -1,19 +1,19 @@
-interface Task {
-  id: number;
-  title: string;
-}
+import { Action } from "../context/tasksContext";
 
-interface AddTask {
+export interface AddTask {
   type: "ADD";
   task: Task;
 }
 
-interface Delete {
+export interface Delete {
   type: "DELETE";
   id: number;
 }
 
-type Action = AddTask | Delete;
+export interface Task {
+  id: number;
+  title: string;
+}
 
 const taskReducer = (tasks: Task[], action: Action) => {
   switch (action.type) {
