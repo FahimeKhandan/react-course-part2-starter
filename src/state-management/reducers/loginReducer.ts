@@ -1,6 +1,4 @@
-interface Action {
-  type: "LOGIN" | "LOGOUT";
-}
+import { Action } from "../context/currentuserContext";
 
 const loginReducer = (user: string, action: Action) => {
   switch (action.type) {
