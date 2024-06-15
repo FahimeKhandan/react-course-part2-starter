@@ -1,5 +1,5 @@
 import React, { Dispatch } from "react";
-import { AddTask, Delete, Task } from "../reducers/tasksReducer";
+import { AddTask, Delete, Task } from "./TaskProvider";
 
 export type Action = AddTask | Delete;
 

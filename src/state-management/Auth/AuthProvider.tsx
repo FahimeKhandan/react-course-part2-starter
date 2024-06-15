@@ -1,6 +1,14 @@
 import React, { ReactNode, useReducer } from "react";
-import CurrentUserContext from "./context/currentuserContext";
-import loginReducer from "./reducers/loginReducer";
+import CurrentUserContext, { Action } from "./currentuserContext";
+
+const loginReducer = (user: string, action: Action) => {
+  switch (action.type) {
+    case "LOGIN":
+      return "Mosh Hamedani";
+    case "LOGOUT":
+      return "";
+  }
+};
 
 interface Props {
   children: ReactNode;
